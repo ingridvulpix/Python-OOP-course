@@ -1,6 +1,26 @@
 import random
 
-class Rectangle:
+class Point:
+    def __init__(self, xp, yp):
+        self.xp = xp
+        self.yp = yp
+    
+    def show_point_cord(self):
+        print(f'{self.xp},{self.yp}')
+
+    def distance_points (self):
+        distance = []
+        old_coord = [self.xp, self.yp]
+        new_xp = int(input('Second point x coord: '))
+        new_yp = int(input('Second point y coord: '))
+        new_coord = [new_xp, new_yp]
+
+        for coord_1, coord_2 in zip(old_coord, new_coord):
+            subtracted = abs(coord_1 - coord_2)
+            distance.append(subtracted)
+        print (distance)
+
+class Rectangle(Point):
     def __init__(self):
         self.x1 = random.randint(0,5)
         self.y1 = random.randint(0,5)
@@ -38,8 +58,9 @@ class Rectangle:
         print(f'Your point was inside rectangle: {is_in}')
         return
 
-test1 = Rectangle()
-
+#test1 = Rectangle()
+#test2 = Point(5,6)
+#test2.distance_points()
     
 
 
