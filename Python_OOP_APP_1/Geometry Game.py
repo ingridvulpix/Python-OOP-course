@@ -6,25 +6,25 @@ class Point:
         self.y = y
     
     def inside_rectangle(self, rec):
-        if rec.lowleft.x <= self.x <= rec.upright.x \
-            and rec.lowleft.y <= self.y <= rec.upright.y:
+        if rec.point_1.x <= self.x <= rec.point_2.x \
+            and rec.point_1.y <= self.y <= rec.point_2.y:
             return True
         else:
             return False
 
 
 class Rectangle:
-    def __init__(self, lowleft, upright):
-        self.lowleft = lowleft
-        self.upright = upright
-        self.base = abs(self.lowleft.x - self.upright.x)
-        self.heigh = abs(self.lowleft.y - self.upright.y)
+    def __init__(self, point_1, point_2):
+        self.point_1 = point_1
+        self.point_2 = point_2
+        self.base = abs(self.point_1.x - self.point_2.x)
+        self.heigh = abs(self.point_1.y - self.point_2.y)
 
 
 
 class Area(Rectangle):
     def __init__(self, rec):
-        super().__init__(rec.lowleft,rec.upright)
+        super().__init__(rec.point_1,rec.point_2)
     
     def calculate_area(self):
         self.area = float(self.base * self.heigh)
@@ -47,16 +47,15 @@ if __name__ == '__main__':
     )
 
     print('\nRectangle Coordinates: ',
-        f'{rectangle.lowleft.x}, {rectangle.lowleft.y}',
-        f'and {rectangle.upright.x}, {rectangle.upright.y}\n')
+        f'{rectangle.point_1.x}, {rectangle.point_1.y}',
+        f'and {rectangle.point_2.x}, {rectangle.point_2.y}\n')
 
     user_point = Point(float(input('Guess point x coord: ')), float(input('Guess point y coord: ')))
 
-    print(f'\nYour point was inside rectangle: {user_point.inside_rectangle(rectangle)}')
-
-
     user_area = Area(rectangle)
     guess = user_area.guess_area(float(input('Guess the rectangle area: ')))
+
+    print(f'\nYour point was inside rectangle: {user_point.inside_rectangle(rectangle)}')
 
     print(f'Your guessed area was right: {guess}')
     
