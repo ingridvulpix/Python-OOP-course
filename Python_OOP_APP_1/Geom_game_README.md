@@ -6,7 +6,7 @@ Geometry Game!!
 - Check if the point is inside of the rectangle or not
 - The user insert a guess of the rectangle area
 - Check if is right or not
-- If isn't right, it shows the right answer
+- If isn't right, it shows the right answer!
 
 --> Terminal output should be:
 
