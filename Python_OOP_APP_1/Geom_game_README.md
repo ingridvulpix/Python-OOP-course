@@ -20,6 +20,6 @@ Guess the rectangle area: [user_guess_area]
 
 Your guess was right: [bool]
 
--If bool == False
+- If bool == False
 
 The right area is: [rectangle_area]
